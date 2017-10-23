@@ -4,24 +4,43 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour 
 {
-	public GameObject bullett;
+    public bool movingDown;
+    public GameObject bullett;
+    public GameObject topBounce;
+    public GameObject botBounce;
+
 	public float spawnRate;
 
 	void Start ()
 	{
-		InvokeRepeating ("Spawn", spawnRate+2, spawnRate);
+		InvokeRepeating ("Spawn", spawnRate + 2, spawnRate);
 	}
 
-	void Update ()
-	{
-	}
+    void Update ()
+    {
+        if (transform.position.y < botBounce.transform.position.y)
+        {
+            movingDown = false;
+        }
 
-	void Spawn () 
-	{
-		Instantiate (bullett, transform.position, Quaternion.identity);
+        if (transform.position.y > topBounce.transform.position.y)
+        {
+            movingDown = true;
+        }
+    }
 
-			transform.Translate (new Vector2 (0, -1));
+    void Spawn ()
+    {
+        Instantiate(bullett, transform.position, Quaternion.identity);
 
-		//Invoken kautta kutsu 2 eri metodia, jossa siirretään objektia ylös ja alas acordingly
+        if (movingDown == true)
+        {
+            transform.Translate(new Vector2(0, -1));
+        }
+
+        if (movingDown == false)
+        {
+            transform.Translate(new Vector2(0, +1));
+        }
 	}
 }

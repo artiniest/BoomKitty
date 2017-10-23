@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
 		{
 			transform.Translate (new Vector2 (-bullSpeed/2 * Time.deltaTime, 0));
 
-			if (transform.position.x < -25) 
+			if (transform.position.x < -10.5) 
 			{
 				Destroy (gameObject);
 			}
