@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour 
 {
 	Vector2 mousePosition;
-	Rigidbody rigby;
+	Rigidbody2D rigby;
 
 	public float timer = 0.2f;
 	public float bulletInterval = 0.2f;
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
 	void Start ()
 	{
-		rigby = GetComponent<Rigidbody> ();
+		rigby = GetComponent<Rigidbody2D> ();
 	}
 
 	void Update ()

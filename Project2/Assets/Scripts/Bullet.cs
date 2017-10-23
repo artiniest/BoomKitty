@@ -8,11 +8,25 @@ public class Bullet : MonoBehaviour
 
 	void Update () 
 	{
-		transform.Translate (new Vector2 (bullSpeed* Time.deltaTime, 0));
 
-		if (transform.position.x > 25) 
+		if (gameObject.tag == "Bullet") 
 		{
-			Destroy (gameObject);
+			transform.Translate (new Vector2 (bullSpeed * Time.deltaTime, 0));
+
+			if (transform.position.x > 25) 
+			{
+				Destroy (gameObject);
+			}
+		}
+
+		if (gameObject.tag == "EnemyBullet") 
+		{
+			transform.Translate (new Vector2 (-bullSpeed/2 * Time.deltaTime, 0));
+
+			if (transform.position.x < -25) 
+			{
+				Destroy (gameObject);
+			}
 		}
 	}
 }
