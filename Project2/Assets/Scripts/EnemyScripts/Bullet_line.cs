@@ -46,7 +46,7 @@ public class Bullet_line : MonoBehaviour
 
 		if (countLines > lines.Length && hasFired == true)
 		{
-			//Invoke ("Disable", waitTime);
+			Invoke ("Disable", waitTime);
 		}
 	}
 

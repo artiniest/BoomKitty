@@ -272,10 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5cc016b19b44d3a908d3379fbec559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineObjects:
-  - {fileID: 1648887269499562}
-  - {fileID: 1932459063470718}
-  - {fileID: 1155661564524960}
+  rateOfAttack: 0.15
+  waitTime: 1
 --- !u!120 &120068121469702222
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -356,7 +354,7 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 16
+    numCornerVertices: 0
     numCapVertices: 1
     alignment: 0
     textureMode: 0
@@ -442,7 +440,7 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 16
+    numCornerVertices: 0
     numCapVertices: 1
     alignment: 0
     textureMode: 0
@@ -528,7 +526,7 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 16
+    numCornerVertices: 0
     numCapVertices: 1
     alignment: 0
     textureMode: 0
@@ -614,7 +612,7 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 16
+    numCornerVertices: 0
     numCapVertices: 1
     alignment: 0
     textureMode: 0
@@ -700,7 +698,7 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 4
       m_NumAlphaKeys: 2
-    numCornerVertices: 16
+    numCornerVertices: 0
     numCapVertices: 1
     alignment: 0
     textureMode: 0
