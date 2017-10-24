@@ -2,77 +2,80 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet_line : MonoBehaviour 
+public class Bullet_line : MonoBehaviour
 {
-	GameObject pelaaja;
-	int countLines = 0;
-	bool hasFired = false;
+    GameObject pelaaja;
+    int countLines = 0;
 
-	private LineRenderer[] lines;
-	public float rateOfAttack = 0.5f;
-	public float waitTime = 2f;
-	private Material[] materials;
+    private LineRenderer [] lines;
+    public float rateOfAttack = 0.5f;
+    public float waitTime = 2f;
+    private Material [] materials;
+    Material matToAssign;
 
-	void Awake () 
-	{
-		pelaaja = GameObject.FindGameObjectWithTag ("Player");
-		lines = GetComponentsInChildren<LineRenderer> ();
-		materials = GetComponentInChildren<LineRenderer> ().materials;
+    void Awake ()
+    {
+        pelaaja = GameObject.FindGameObjectWithTag("Player");
+        lines = GetComponentsInChildren<LineRenderer>();
+        materials = GetComponentInChildren<LineRenderer>().materials;
 
-		foreach (LineRenderer rendo in lines) 
-		{
-			rendo.enabled = false;
-			rendo.material = materials [1];
-		}
-	}
+        foreach (LineRenderer rendo in lines)
+        {
+            rendo.enabled = false;
+            rendo.material = materials [1];
+        }
+    }
 
-	void OnEnable ()
-	{
-		InvokeRepeating ("StartAttack", 1, rateOfAttack);
-	}
+    void OnEnable ()
+    {
+        InvokeRepeating("StartAttack", 1, rateOfAttack);
+    }
 
-	void StartAttack () 
-	{
-		if (countLines < lines.Length) 
-		{
-			Invoke ("Attack", 0);
-		}
+    void StartAttack ()
+    {
+        if (countLines < lines.Length)
+        {
+            Invoke("Attack", 0);
+        }
 
-		if (countLines == lines.Length && hasFired == false) 
-		{
-			Invoke ("Hurt", waitTime);
-			hasFired = true;
-		}
+        else if (countLines == lines.Length)
+        {
+            Invoke("Hurt", waitTime);
+        }
 
-		if (countLines > lines.Length && hasFired == true)
-		{
-			Invoke ("Disable", waitTime);
-		}
-	}
+        else if (countLines > lines.Length)
+        {
+            Invoke("Disable", waitTime);
+        }
+    }
 
-	void Attack ()
-	{
-		lines [countLines].SetPosition (1, new Vector3 (-22.8f, pelaaja.transform.position.y, 0));
-		lines [countLines].enabled = true;
-		countLines++;
-	}
+    void Attack ()
+    {
+        lines [countLines].SetPosition(1, new Vector3(-22.8f, pelaaja.transform.position.y, 0));
+        lines [countLines].enabled = true;
+        countLines++;
+    }
 
-	void Hurt ()
-	{
-		foreach (LineRenderer rendo in lines) 
-		{
-			rendo.material = materials [0];
-			rendo.widthMultiplier = 0.75f;
-		}
+    void Hurt ()
+    {
+        foreach (LineRenderer rendo in lines)
+        {
+            rendo.material = materials [0];
+        }
 
-		countLines++;
-	}
+        foreach (LineRenderer rendo in lines)
+        {
+            rendo.widthMultiplier = 0.75f;
+        }
 
-	void Disable ()
-	{
-		foreach (LineRenderer rendo in lines) 
-		{
-			rendo.enabled = false;
-		}
-	}
+        countLines++;
+    }
+
+    void Disable ()
+    {
+        foreach (LineRenderer rendo in lines)
+        {
+            rendo.enabled = false;
+        }
+    }
 }
