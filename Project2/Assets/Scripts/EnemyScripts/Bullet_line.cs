@@ -6,24 +6,29 @@ public class Bullet_line : MonoBehaviour
 {
 	GameObject pelaaja;
 	int countLines = 0;
+	bool hasFired = false;
 
 	private LineRenderer[] lines;
+	public float rateOfAttack = 0.5f;
+	public float waitTime = 2f;
+	private Material[] materials;
 
 	void Awake () 
 	{
 		pelaaja = GameObject.FindGameObjectWithTag ("Player");
 		lines = GetComponentsInChildren<LineRenderer> ();
+		materials = GetComponentInChildren<LineRenderer> ().materials;
 
-		lines [0].enabled = false;
-		lines [1].enabled = false;
-		lines [2].enabled = false;
-
-		InvokeRepeating ("StartAttack", 1, 0.5f);
+		foreach (LineRenderer rendo in lines) 
+		{
+			rendo.enabled = false;
+			rendo.material = materials [1];
+		}
 	}
 
-	void Update ()
+	void OnEnable ()
 	{
-		//lines [0].SetPosition (1, pelaaja.transform.position);
+		InvokeRepeating ("StartAttack", 1, rateOfAttack);
 	}
 
 	void StartAttack () 
@@ -32,12 +37,42 @@ public class Bullet_line : MonoBehaviour
 		{
 			Invoke ("Attack", 0);
 		}
+
+		if (countLines == lines.Length && hasFired == false) 
+		{
+			Invoke ("Hurt", waitTime);
+			hasFired = true;
+		}
+
+		if (countLines > lines.Length && hasFired == true)
+		{
+			//Invoke ("Disable", waitTime);
+		}
 	}
 
 	void Attack ()
 	{
-		lines [countLines].SetPosition (1, new Vector3 (-22.8f, pelaaja.transform.position.y, 0)); //pelaaja.transform.position);
+		lines [countLines].SetPosition (1, new Vector3 (-22.8f, pelaaja.transform.position.y, 0));
 		lines [countLines].enabled = true;
 		countLines++;
+	}
+
+	void Hurt ()
+	{
+		foreach (LineRenderer rendo in lines) 
+		{
+			rendo.material = materials [0];
+			rendo.widthMultiplier = 0.75f;
+		}
+
+		countLines++;
+	}
+
+	void Disable ()
+	{
+		foreach (LineRenderer rendo in lines) 
+		{
+			rendo.enabled = false;
+		}
 	}
 }

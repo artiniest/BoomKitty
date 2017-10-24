@@ -41,4 +41,12 @@ public class Player : MonoBehaviour
 			rigby.MovePosition (transform.position = Vector2.Lerp (transform.position, new Vector2 (startLocation, mousePosition.y), moveSpeed * Time.deltaTime));
 		}
 	}
+
+	void OnTriggerStay2D (Collider2D other)
+	{
+		if (other.tag == "EnemyBulletT2") 
+		{
+			print ("died");
+		}
+	}
 }
