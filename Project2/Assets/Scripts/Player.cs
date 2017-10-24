@@ -29,8 +29,13 @@ public class Player : MonoBehaviour
 		if (Input.GetKey (KeyCode.Mouse0) && timer < 0) 
 		{
 			Instantiate (bullet, transform.position, Quaternion.identity);
-			timer = 0.2f;
+			timer = 0.09f;
 		}
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Application.LoadLevel(0);
+        }
 	}
 
 	void FixedUpdate ()
