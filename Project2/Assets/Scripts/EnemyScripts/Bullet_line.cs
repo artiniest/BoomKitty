@@ -14,16 +14,16 @@ public class Bullet_line : MonoBehaviour
 		pelaaja = GameObject.FindGameObjectWithTag ("Player");
 		lines = GetComponentsInChildren<LineRenderer> ();
 
-		//lines [0].enabled = false;
+		lines [0].enabled = false;
 		lines [1].enabled = false;
 		lines [2].enabled = false;
 
-		//InvokeRepeating ("StartAttack", 1,1);
+		InvokeRepeating ("StartAttack", 1, 0.5f);
 	}
 
 	void Update ()
 	{
-		lines [0].SetPosition (1, pelaaja.transform.position);
+		//lines [0].SetPosition (1, pelaaja.transform.position);
 	}
 
 	void StartAttack () 
@@ -36,6 +36,7 @@ public class Bullet_line : MonoBehaviour
 
 	void Attack ()
 	{
+		lines [countLines].SetPosition (1, new Vector3 (-22.8f, pelaaja.transform.position.y, 0)); //pelaaja.transform.position);
 		lines [countLines].enabled = true;
 		countLines++;
 	}
