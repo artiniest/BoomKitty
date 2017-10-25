@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet_line : MonoBehaviour
 {
     GameObject pelaaja;
+	public static Vector2 playerPos;
     int countLines = 0;
 
     private LineRenderer [] lines;
@@ -51,7 +52,8 @@ public class Bullet_line : MonoBehaviour
 
     void Attack ()
     {
-        lines [countLines].SetPosition(1, new Vector3(-22.8f, pelaaja.transform.position.y, 0));
+		playerPos = pelaaja.transform.position;
+		lines [countLines].SetPosition(1, new Vector3(-22.8f, playerPos.y, 0));
         lines [countLines].enabled = true;
         countLines++;
     }
