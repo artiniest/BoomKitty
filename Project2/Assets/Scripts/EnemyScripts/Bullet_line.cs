@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Bullet_line : MonoBehaviour
 {
+	Animator maattori;
     GameObject pelaaja;
 	public static Vector2 playerPos;
     int countLines = 0;
 
     private LineRenderer [] lines;
     public float rateOfAttack = 0.5f;
+	public float initialWait = 2f;
     public float waitTime = 2f;
     private Material [] materials;
     Material matToAssign;
@@ -19,6 +21,7 @@ public class Bullet_line : MonoBehaviour
         pelaaja = GameObject.FindGameObjectWithTag("Player");
         lines = GetComponentsInChildren<LineRenderer>();
         materials = GetComponentInChildren<LineRenderer>().materials;
+		maattori = GetComponentInChildren<Animator> ();
 
         foreach (LineRenderer rendo in lines)
         {
@@ -29,30 +32,34 @@ public class Bullet_line : MonoBehaviour
 
     void OnEnable ()
     {
-        InvokeRepeating("StartAttack", 1, rateOfAttack);
+		InvokeRepeating("StartAttack", initialWait, rateOfAttack);
     }
 
     void StartAttack ()
     {
         if (countLines < lines.Length)
         {
-            Invoke("Attack", 0);
+			Invoke("Attack", waitTime);
+			maattori.SetTrigger ("StartAttack");
         }
 
         else if (countLines == lines.Length)
         {
             Invoke("Hurt", waitTime);
+			maattori.SetTrigger ("Attack");
         }
 
         else if (countLines > lines.Length)
         {
             Invoke("Disable", waitTime);
+			maattori.SetTrigger ("BackToIdle");
         }
     }
 
     void Attack ()
     {
 		playerPos = pelaaja.transform.position;
+		lines [countLines].SetPosition (0, gameObject.transform.position);
 		lines [countLines].SetPosition(1, new Vector3(-22.8f, playerPos.y, 0));
         lines [countLines].enabled = true;
         countLines++;
