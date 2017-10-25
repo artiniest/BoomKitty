@@ -10,6 +10,7 @@ TagManager:
   - EnemyBulletT2
   - ColliderObjects
   - Bubble
+  - Enemy1
   layers:
   - Default
   - TransparentFX

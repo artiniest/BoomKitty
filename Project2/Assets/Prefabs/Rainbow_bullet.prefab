@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212056629526143816}
   - component: {fileID: 95402487577801616}
   - component: {fileID: 114574376213874764}
+  - component: {fileID: 61946262260110436}
   m_Layer: 0
   m_Name: Rainbow_bullet
   m_TagString: Bullet
@@ -42,6 +43,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61946262260110436
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278691872299564}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.93333334, y: 0.43333334}
+    newSize: {x: 1.5555556, y: 0.7222222}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.93333334, y: 0.43333334}
+  m_EdgeRadius: 0
 --- !u!95 &95402487577801616
 Animator:
   serializedVersion: 3
@@ -112,4 +138,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

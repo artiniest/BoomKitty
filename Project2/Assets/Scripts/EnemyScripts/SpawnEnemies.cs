@@ -31,16 +31,17 @@ public class SpawnEnemies : MonoBehaviour
 
     void Spawn ()
     {
-        Instantiate(bullett, transform.position, Quaternion.identity);
+		if (transform.childCount != null) 
+		{
+			Instantiate (bullett, transform.position, Quaternion.identity);
 
-        if (movingDown == true)
-        {
-            transform.Translate(new Vector2(0, -1));
-        }
+			if (movingDown == true) {
+				transform.Translate (new Vector2 (0, -1));
+			}
 
-        if (movingDown == false)
-        {
-            transform.Translate(new Vector2(0, +1));
-        }
+			if (movingDown == false) {
+				transform.Translate (new Vector2 (0, +1));
+			}
+		}
 	}
 }
