@@ -11,6 +11,8 @@ TagManager:
   - ColliderObjects
   - Bubble
   - Enemy1
+  - Enemy10HP
+  - Enemy20HP
   layers:
   - Default
   - TransparentFX

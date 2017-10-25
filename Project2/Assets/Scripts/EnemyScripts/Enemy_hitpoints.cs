@@ -23,7 +23,7 @@ public class Enemy_hitpoints : MonoBehaviour
 	{
 		if (hitPoints < 1) 
 		{
-			Destroy (this.gameObject.transform.parent.gameObject);
+			//Destroy (this.gameObject.transform.parent.gameObject);
 		}
 	}
 
