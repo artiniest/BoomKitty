@@ -63,11 +63,7 @@ public class Bullet_line : MonoBehaviour
         foreach (LineRenderer rendo in lines)
         {
             rendo.material = materials [0];
-        }
-
-        foreach (LineRenderer rendo in lines)
-        {
-            rendo.widthMultiplier = 0.75f;
+			rendo.widthMultiplier = 0.75f;
         }
 
         countLines++;

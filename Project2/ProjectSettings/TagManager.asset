@@ -9,6 +9,7 @@ TagManager:
   - EnemySpawner
   - EnemyBulletT2
   - ColliderObjects
+  - Bubble
   layers:
   - Default
   - TransparentFX

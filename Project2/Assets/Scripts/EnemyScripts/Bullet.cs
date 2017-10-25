@@ -28,5 +28,11 @@ public class Bullet : MonoBehaviour
 				Destroy (gameObject);
 			}
 		}
+
+		if (gameObject.tag == "Bubble") 
+		{
+			//transform.Translate (new Vector2 (-bullSpeed/2 * Time.deltaTime, Time.deltaTime));
+			transform.Translate (Vector3.forward * (-bullSpeed) * Time.deltaTime);
+		}
 	}
 }

@@ -274,7 +274,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rateOfAttack: 0.15
   waitTime: 1
-  materials: []
 --- !u!120 &120073976532176074
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -359,7 +358,6 @@ LineRenderer:
     numCapVertices: 1
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!120 &120223546455811798
@@ -446,7 +444,6 @@ LineRenderer:
     numCapVertices: 1
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!120 &120269668969959600
@@ -533,7 +530,6 @@ LineRenderer:
     numCapVertices: 1
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!120 &120798685296900874
@@ -620,7 +616,6 @@ LineRenderer:
     numCapVertices: 1
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!120 &120938053812554696
@@ -707,7 +702,6 @@ LineRenderer:
     numCapVertices: 1
     alignment: 0
     textureMode: 0
-    generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!135 &135652199625398224
