@@ -14,6 +14,7 @@ TagManager:
   - Enemy10HP
   - Enemy20HP
   - UIHP
+  - Ahwen
   layers:
   - Default
   - TransparentFX

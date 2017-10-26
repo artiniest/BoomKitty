@@ -283,7 +283,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434328882510250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -7.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4235933251612762}
@@ -296,7 +296,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1115113924722296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 7.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4792572235605138}
@@ -351,7 +351,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882386323232076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.51, y: 0.49301398, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4335018736230988}
@@ -529,10 +529,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingDown: 0
-  bullett: {fileID: 1194177547299400, guid: 2f5f851683af44b319be0a18b69337ba, type: 2}
+  bullett: {fileID: 1588047224435344, guid: d2f14242bb5634608b32d9a096e88db5, type: 2}
   topBounce: {fileID: 1115113924722296}
   botBounce: {fileID: 1381395246338728}
-  spawnRate: 0.09
+  spawnRate: 0.6
 --- !u!114 &114525125345726820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -557,10 +557,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingDown: 1
-  bullett: {fileID: 1194177547299400, guid: 2f5f851683af44b319be0a18b69337ba, type: 2}
+  bullett: {fileID: 1588047224435344, guid: d2f14242bb5634608b32d9a096e88db5, type: 2}
   topBounce: {fileID: 1273222751123444}
   botBounce: {fileID: 1434328882510250}
-  spawnRate: 0.09
+  spawnRate: 0.6
 --- !u!212 &212400867133062362
 SpriteRenderer:
   m_ObjectHideFlags: 1

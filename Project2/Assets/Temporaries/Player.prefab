@@ -177,11 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c681f25eb245448978b690fc5ce481f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 5
   timer: 0.2
   bulletInterval: 0.2
   moveSpeed: 10
-  startLocation: -14
   bullet: {fileID: 1278691872299564, guid: 8782ac87b43d1e449bb1d443158eae0d, type: 2}
   topBoundary: {fileID: 0}
   bottomBoundary: {fileID: 0}
