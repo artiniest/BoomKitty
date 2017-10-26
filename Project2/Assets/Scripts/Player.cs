@@ -7,15 +7,17 @@ public class Player : MonoBehaviour
 	Vector2 mousePosition;
 	Rigidbody2D rigby;
 
+	public int hitPoints = 5;
 	public float timer = 0.2f;
 	public float bulletInterval = 0.2f;
 	public float moveSpeed = 10f;
 	public float startLocation = -14;
+
 	public GameObject bullet;
 	public GameObject topBoundary;
 	public GameObject bottomBoundary;
 
-	bool canMove = true;
+	public static bool canMove = true;
 
 	void Start ()
 	{
@@ -26,7 +28,7 @@ public class Player : MonoBehaviour
 	{
 		timer -= Time.deltaTime;
 
-		if (Input.GetKey (KeyCode.Mouse0) && timer < 0) 
+		if (Input.GetKey (KeyCode.Mouse0) && timer < 0 && canMove == true) 
 		{
 			Instantiate (bullet, transform.position, Quaternion.identity);
 			timer = 0.09f;
@@ -40,18 +42,24 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate ()
 	{ 
-		if (canMove == true) {
+		if (canMove == true) 
+		{
 			mousePosition = Input.mousePosition;
 			mousePosition = Camera.main.ScreenToWorldPoint (mousePosition);
 			rigby.MovePosition (transform.position = Vector2.Lerp (transform.position, new Vector2 (startLocation, mousePosition.y), moveSpeed * Time.deltaTime));
 		}
 	}
 
-	void OnTriggerStay2D (Collider2D other)
+	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.tag == "EnemyBulletT2") 
+		if (other.tag != "Bullet") 
 		{
-			print ("died");
+			hitPoints--;
+		}
+		if (hitPoints < 1)
+		{
+			canMove = false;
+			hitPoints = 0;
 		}
 	}
 }

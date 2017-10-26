@@ -31,7 +31,7 @@ public class SpawnEnemies : MonoBehaviour
 
     void Spawn ()
     {
-		if (transform.childCount != null) 
+		if (transform.childCount != 0) 
 		{
 			Instantiate (bullett, transform.position, Quaternion.identity);
 

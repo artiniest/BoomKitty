@@ -9,11 +9,40 @@ public class Bullet_pulsebubble : MonoBehaviour
 	public float repeatRate = 1;
 	public GameObject prefab;
 
+	public Transform[] points;
+	public float moveSpeed = 10;
+	public float distance = 2;
+
+	public int count = 0;
+
 	void Start() 
 	{
-		InvokeRepeating ("Pulse", initialSpawn, repeatRate);
+		InvokeRepeating ("Pulse", 0, repeatRate);
 	}
 
+	void FixedUpdate ()
+	{
+		Vector2 direction = Vector2.zero;
+		direction = points[count].transform.position - transform.position;
+
+		if (direction.magnitude < distance) 
+		{
+			if (count < points.Length) 
+			{
+				count++;
+			}
+
+			if (count == points.Length || count > points.Length) 
+			{
+				count = 0;
+			}
+		}
+
+		direction = direction.normalized;
+
+		GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+	}
+		
 	void Pulse ()
 	{
 		Vector3 center = transform.position;
