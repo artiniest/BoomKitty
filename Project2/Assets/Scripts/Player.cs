@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
 	public float timer = 0.2f;
 	public float bulletInterval = 0.2f;
 	public float moveSpeed = 10f;
-	public float startLocation = -14;
 
 	public GameObject bullet;
 	public GameObject topBoundary;
@@ -21,6 +20,7 @@ public class Player : MonoBehaviour
 
 	void Start ()
 	{
+		hitPoints = 5;
 		rigby = GetComponent<Rigidbody2D> ();
 	}
 
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 		{
 			mousePosition = Input.mousePosition;
 			mousePosition = Camera.main.ScreenToWorldPoint (mousePosition);
-			rigby.MovePosition (transform.position = Vector2.Lerp (transform.position, new Vector2 (startLocation, mousePosition.y), moveSpeed * Time.deltaTime));
+			rigby.MovePosition (transform.position = Vector2.Lerp (transform.position, new Vector2 (mousePosition.x, mousePosition.y), moveSpeed * Time.deltaTime));
 		}
 	}
 

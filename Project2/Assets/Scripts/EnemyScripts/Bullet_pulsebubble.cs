@@ -50,7 +50,7 @@ public class Bullet_pulsebubble : MonoBehaviour
 		for (int i = 0; i < numObjects; i++)
 		{
 			Vector3 pos = RandomCircle(center, 5.0f);
-			Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center-pos);
+			Quaternion rot = Quaternion.FromToRotation(Vector2.right, center-pos);
 			Instantiate(prefab, pos, rot);
 		}
 	}

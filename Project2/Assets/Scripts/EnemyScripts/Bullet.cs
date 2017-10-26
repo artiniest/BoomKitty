@@ -31,8 +31,7 @@ public class Bullet : MonoBehaviour
 
 		if (gameObject.tag == "Bubble") 
 		{
-			//transform.Translate (new Vector2 (-bullSpeed/2 * Time.deltaTime, Time.deltaTime));
-			transform.Translate (Vector3.forward * (-bullSpeed) * Time.deltaTime);
+			transform.Translate (Vector3.right * (-bullSpeed) * Time.deltaTime);
 		}
 	}
 }
