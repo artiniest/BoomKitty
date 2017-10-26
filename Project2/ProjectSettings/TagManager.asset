@@ -13,6 +13,7 @@ TagManager:
   - Enemy1
   - Enemy10HP
   - Enemy20HP
+  - UIHP
   layers:
   - Default
   - TransparentFX

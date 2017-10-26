@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 	Vector2 mousePosition;
 	Rigidbody2D rigby;
 
-	public int hitPoints = 5;
+	public static int hitPoints = 5;
 	public float timer = 0.2f;
 	public float bulletInterval = 0.2f;
 	public float moveSpeed = 10f;
