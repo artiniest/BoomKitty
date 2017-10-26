@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testscene_saara.unity
     guid: 7d64b7188faa642dab7408220f3087c9
+  - enabled: 1
+    path: Assets/Scenes/Scene1.unity
+    guid: 9a093827d84214b47865762a752a340f

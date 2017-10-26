@@ -9,13 +9,12 @@ public class EnableDisable : MonoBehaviour
 	void Awake ()
 	{
 		toSpawn.GetComponent<Bullet_pulsebubble> ().enabled = false;
-		Invoke ("StartSpawn", 0);
+		Invoke ("Spawn", 1f);
 	}
 
-	void StartSpawn ()
+	void Update ()
 	{
-		transform.Translate (new Vector2 (-8, 0));
-		Invoke ("Spawn", 5);
+		transform.position = Vector2.MoveTowards (new Vector2 (transform.position.x, transform.position.y), new Vector2(13, 0), 10 * Time.deltaTime);
 	}
 
 	void Spawn ()
