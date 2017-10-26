@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 	public float moveSpeed = 10f;
 
 	public GameObject bullet;
+    public AudioSource audiosourc;
 	public GameObject topBoundary;
 	public GameObject bottomBoundary;
 
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
 		if (Input.GetKey (KeyCode.Mouse0) && timer < 0 && canMove == true) 
 		{
 			Instantiate (bullet, transform.position, Quaternion.identity);
+            audiosourc.Play();
 			timer = 0.09f;
 		}
 

@@ -5,21 +5,29 @@ using UnityEngine;
 public class Attack : MonoBehaviour 
 {
 	public int healthPoints = 3000;
+    public int secondForm = 2950;
+    public int finalForm = 2000;
 	public Animator maattori;
+    public AudioSource [] sources;
+    AudioSource source0;
+    AudioSource source1;
 
 	void Start ()
 	{
 		maattori = GetComponent<Animator> ();
+        sources = GetComponents<AudioSource>();
+        source0 = sources [0];
+        source1 = sources [1];
 	}
 
 	void Update ()
 	{
-		if (healthPoints < 2950) 
+		if (healthPoints < secondForm) 
 		{
 			maattori.SetBool ("hasTakenDmg", true);
 		}
 
-		if (healthPoints < 2900) 
+		if (healthPoints < finalForm) 
 		{
 			maattori.SetBool ("isThisHisFinalForm", true);
 		}
@@ -43,10 +51,21 @@ public class Attack : MonoBehaviour
 		ShakeScreen.shakeDuration = 5;
 	}
 
-	void OnTriggerEnter2D (Collider2D other) 
+    void LaughAway ()
+    {
+        source1.Play();
+    }
+
+	void OnTriggerStay2D (Collider2D other) 
 	{
 		if (other.tag == "Bullet") 
 		{
+            if (healthPoints < secondForm)
+            {
+                source1.Play();
+            }
+            source0.Play();
+            Destroy(other.gameObject);
 			healthPoints--;
 		}
 	}
