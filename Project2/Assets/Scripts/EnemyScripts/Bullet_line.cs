@@ -13,6 +13,7 @@ public class Bullet_line : MonoBehaviour
     public float rateOfAttack = 0.5f;
 	public float initialWait = 2f;
     public float waitTime = 2f;
+    public GameObject lazerPosition;
     private Material [] materials;
     Material matToAssign;
 
@@ -59,7 +60,7 @@ public class Bullet_line : MonoBehaviour
     void Attack ()
     {
 		playerPos = pelaaja.transform.position;
-		lines [countLines].SetPosition (0, gameObject.transform.position);
+		lines [countLines].SetPosition (0, lazerPosition.transform.position);
 		lines [countLines].SetPosition(1, new Vector3(-22.8f, playerPos.y, 0));
         lines [countLines].enabled = true;
         countLines++;

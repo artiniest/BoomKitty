@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour 
 {
-	public int healthPoints = 3000;
-    public int secondForm = 2950;
-    public int finalForm = 2000;
+	public int healthPoints = 500;
 	public Animator maattori;
     public AudioSource [] sources;
     AudioSource source0;
@@ -18,19 +16,8 @@ public class Attack : MonoBehaviour
         sources = GetComponents<AudioSource>();
         source0 = sources [0];
         source1 = sources [1];
-	}
-
-	void Update ()
-	{
-		if (healthPoints < secondForm) 
-		{
-			maattori.SetBool ("hasTakenDmg", true);
-		}
-
-		if (healthPoints < finalForm) 
-		{
-			maattori.SetBool ("isThisHisFinalForm", true);
-		}
+        Bullet_pulsebubble.numObjects = 10;
+        Bullet_pulsebubble.repeatRate = 1f;
 	}
 
 	void SMALLSHAKE ()
@@ -51,22 +38,44 @@ public class Attack : MonoBehaviour
 		ShakeScreen.shakeDuration = 5;
 	}
 
-    void LaughAway ()
-    {
-        source1.Play();
-    }
-
-	void OnTriggerStay2D (Collider2D other) 
+	void OnTriggerEnter2D (Collider2D other) 
 	{
 		if (other.tag == "Bullet") 
 		{
-            if (healthPoints < secondForm)
-            {
-                source1.Play();
-            }
             source0.Play();
             Destroy(other.gameObject);
-			healthPoints--;
+            healthPoints--;
+
+            switch (healthPoints)
+            {
+                case 450:
+                    Bullet_pulsebubble.numObjects = 15;
+                    break;
+
+                case 400:
+                    Bullet_pulsebubble.numObjects = 20;
+                    Bullet_pulsebubble.repeatRate = 0.9f;
+                    break;
+
+                case 300:
+                    Bullet_pulsebubble.numObjects = 30;
+                    source1.Play();
+                    maattori.SetBool("hasTakenDmg", true);
+                    break;
+
+                case 250:
+                    Bullet_pulsebubble.numObjects = 35;
+                    Bullet_pulsebubble.repeatRate = 0.5f;
+                    break;
+
+                case 100:
+                    source1.Stop();
+                    maattori.SetBool("isThisHisFinalForm", true);
+                    Bullet_pulsebubble.numObjects = 0;
+                    Bullet_pulsebubble.repeatRate = 0;
+                    healthPoints = 100;
+                    break;
+            }
 		}
 	}
 }

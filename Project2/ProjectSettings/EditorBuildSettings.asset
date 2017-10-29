@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Testscene_saara.unity
     guid: 7d64b7188faa642dab7408220f3087c9
   - enabled: 0
-    path: Assets/Scenes/Scene1.unity
+    path: 
     guid: 9a093827d84214b47865762a752a340f
+  - enabled: 1
+    path: Assets/Scenes/StartGame.unity
+    guid: 8b93c02d51c704cbba9c5871a952440c
   - enabled: 1
     path: Assets/Scenes/FIXEDScene.unity
     guid: 6479a4d9b0431476bb5c13f9a39a8de2
+  - enabled: 1
+    path: Assets/Scenes/Boss_scene.unity
+    guid: 4497a44198bb54a38aa4758113f03469

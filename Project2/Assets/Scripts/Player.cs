@@ -6,8 +6,9 @@ public class Player : MonoBehaviour
 {
 	Vector2 mousePosition;
 	Rigidbody2D rigby;
+    Animator maattori;
 
-	public static int hitPoints = 5;
+	public static int hitPoints = 9;
 	public float timer = 0.2f;
 	public float bulletInterval = 0.2f;
 	public float moveSpeed = 10f;
@@ -21,8 +22,10 @@ public class Player : MonoBehaviour
 
 	void Start ()
 	{
-		hitPoints = 5;
+        Cursor.visible = false;
+		hitPoints = 9;
 		rigby = GetComponent<Rigidbody2D> ();
+        maattori = GetComponent<Animator>();
 	}
 
 	void Update ()
@@ -58,10 +61,30 @@ public class Player : MonoBehaviour
 		{
 			hitPoints--;
 		}
-		if (hitPoints < 1)
+
+        switch (hitPoints)
+        {
+            case 9:
+                maattori.SetInteger("Health", 9);
+                break;
+            case 6:
+                maattori.SetInteger("Health", 6);
+                break;
+            case 3:
+                maattori.SetInteger("Health", 3);
+                break;
+            case 0:
+                maattori.SetInteger("Health", 0);
+                canMove = false;
+                hitPoints = 0;
+                break;
+        }
+        return;
+
+		/*if (hitPoints < 1)
 		{
 			canMove = false;
 			hitPoints = 0;
-		}
+		}*/
 	}
 }

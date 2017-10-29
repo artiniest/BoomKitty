@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: dc6d487f777459a488f46ed9e2d63ed0
+timeCreated: 1509110317
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Borlogs
+  fontNames:
+  - Borlogs
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -320,7 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca9069bba7d946d7ab632a271964fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toSpawn: {fileID: 1033080216196704}
+  toSpawn:
+  - {fileID: 1033080216196704}
 --- !u!114 &114491193097977052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -398,3 +399,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0

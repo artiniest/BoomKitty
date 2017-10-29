@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour 
 {
 	public GameObject[] toSpanwn;
+    public int whichOneTSPN;
 	public GameObject[] enemies;
 	public Transform spawnPoint;
 	public GameObject borders;
@@ -12,21 +13,44 @@ public class SceneManager : MonoBehaviour
 
 	void Start () 
 	{
-		Invoke ("Spawn1", 5);
+       // InvokeRepeating("CustomUpdate", 0, 1);
 	}
 
-	void Update ()
+	/*void CustomUpdate ()
 	{
-
 		enemies = GameObject.FindGameObjectsWithTag ("EnemySpawner");
-	}
 
-	void Spawn1 ()
+        if (enemies.Length == 0)
+        {
+            Invoke("SpawnBase", 5);
+        }
+	}*/
+
+	public void Spawn0 ()
 	{
 		borders.gameObject.SetActive (false);
 		Instantiate (toSpanwn [0], spawnPoint);
-		Invoke ("EnableBorders", 1);
+		Invoke ("EnableBorders", 2);
 	}
+
+   public void Spawn1 ()
+    {
+        borders.gameObject.SetActive(false);
+        Instantiate(toSpanwn [1], spawnPoint);
+        Invoke("EnableBorders", 2);
+    }
+
+    public void Spawn2 ()
+    {
+        borders.gameObject.SetActive(false);
+        Instantiate(toSpanwn [2], spawnPoint);
+        Invoke("EnableBorders", 2);
+    }
+
+    public void AHWEN ()
+    {
+        Application.LoadLevel(2);
+    }
 
 	void EnableBorders ()
 	{

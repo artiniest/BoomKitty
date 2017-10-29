@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Bullet_pulsebubble : MonoBehaviour 
 {
-	public int numObjects = 10;
-	public float initialSpawn = 2;
-	public float repeatRate = 1;
+	public static int numObjects = 30;
+	public static float initialSpawn = 2;
+	public static float repeatRate = 0.5f;
 	public GameObject prefab;
 
 	public Transform[] points;
 	public float moveSpeed = 10;
 	public float distance = 2;
+
+    float waitTime = 2f;
 
 	public int count = 0;
 
@@ -22,25 +24,27 @@ public class Bullet_pulsebubble : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		Vector2 direction = Vector2.zero;
-		direction = points[count].transform.position - transform.position;
+        if (points.Length > 0)
+        {
+            Vector2 direction = Vector2.zero;
+            direction = points [count].transform.position - transform.position;
 
-		if (direction.magnitude < distance) 
-		{
-			if (count < points.Length) 
-			{
-				count++;
-			}
+            if (direction.magnitude < distance)
+            {
+                if (count < points.Length)
+                {
+                    count++;
+                }
 
-			if (count == points.Length || count > points.Length) 
-			{
-				count = 0;
-			}
-		}
+                if (count == points.Length || count > points.Length)
+                {
+                    count = 0;
+                }
+            }
 
-		direction = direction.normalized;
-
-		GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+            direction = direction.normalized;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
+        }
 	}
 		
 	void Pulse ()
